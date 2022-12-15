@@ -21,11 +21,7 @@
 
 pipeline {
 
-    agent {
-        node {
-            label 'ubuntu'
-        }
-    }
+    agent none
 
     tools {
         // ... tell Jenkins what java version, maven version or other tools are required ...
@@ -64,6 +60,7 @@ pipeline {
         }
 
         stage('Build JDK 17') {
+            agent { label 'ubuntu' }
             tools {
                 jdk "jdk_17_latest"
             }
@@ -76,6 +73,7 @@ pipeline {
         }
 
         stage('Build JDK 11') {
+            agent { label 'ubuntu' }
             tools {
                 jdk "jdk_11_latest"
             }  
