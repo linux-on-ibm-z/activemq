@@ -113,6 +113,7 @@ pipeline {
         }
 
         stage('Deploy') {
+            agent { label 'ubuntu' }
             when {
                 expression {
                     env.BRANCH_NAME ==~ /(activemq-5.17.x|activemq-5.16.x|activemq-5.15.x|main)/
